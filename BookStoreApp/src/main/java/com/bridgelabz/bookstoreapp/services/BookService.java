@@ -24,4 +24,23 @@ public class BookService implements IBookInterface{
     public List<BookData> getBookList() {
         return bookRepository.findAll();
     }
+
+    @Override
+    public void deleteBookData(int bookId) {
+        bookRepository.deleteById(bookId);
+    }
+
+//    @Override
+//    public void updateBookById(int bookId, BookDTO bookDTO) {
+//        List<BookData> bookDataList = this.getBookList();
+//        for (BookData bookData : bookDataList) {
+//            if(bookData.getBookId() == bookId) {
+//                bookData.setBookName(bookDTO.bookName);
+//                bookData.set(employeePayrollDTO.salary);
+//                employeePayrollRepository.save(empData);
+//                return empData;
+//            }
+//        }
+//        return null;
+//    }
 }

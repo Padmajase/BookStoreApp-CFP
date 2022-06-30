@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class UserData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String name;
     private String emailId;

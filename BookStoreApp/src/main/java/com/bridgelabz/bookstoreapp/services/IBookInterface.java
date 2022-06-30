@@ -10,4 +10,8 @@ public interface IBookInterface {
     BookData approveBook(BookDTO bookDTO);
 
     List<BookData> getBookList();
+
+    void deleteBookData(int bookId);
+
+//    void updateBookById(int bookId,BookDTO bookDTO);
 }

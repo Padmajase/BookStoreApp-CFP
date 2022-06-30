@@ -53,15 +53,15 @@ public class UserController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/addincart/{bookName}")
+    @PostMapping("/addincart/")
     public ResponseEntity<ResponseDTO> addBookInCart(@RequestBody BookDTO bookDTO) {
         BookData bookData = null;
-        bookData = userService.addBookInCart(bookData);
+        bookData = userService.addBookInCart(bookDTO);
         ResponseDTO responseDTO = new ResponseDTO("book added in cart ", bookData);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/addinwishlist/{bookName}")
+    @PostMapping("/addinwishlist/")
     public String addBookInWishList(@PathVariable String bookName) {
         return "Add Book In WishiList Call for Customer Successful with Book Name " + bookName;
     }

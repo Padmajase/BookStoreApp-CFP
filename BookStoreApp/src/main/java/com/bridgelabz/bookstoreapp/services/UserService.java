@@ -1,5 +1,6 @@
 package com.bridgelabz.bookstoreapp.services;
 
+import com.bridgelabz.bookstoreapp.dto.BookDTO;
 import com.bridgelabz.bookstoreapp.dto.LoginDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
@@ -64,9 +65,10 @@ public class UserService implements IUserInterface{
     }
 
     @Override
-    public BookData addBookInCart(BookData bookData) {
+    public BookData addBookInCart(BookDTO bookDTO) {
+        BookData bookData = new BookData(cartRepository.findAll().size() + 1, bookDTO);
         cartRepository.save(bookData);
-        return null;
+        return bookData;
     }
 
 }

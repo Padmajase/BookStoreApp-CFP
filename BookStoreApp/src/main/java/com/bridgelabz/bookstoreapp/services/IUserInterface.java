@@ -1,6 +1,7 @@
 package com.bridgelabz.bookstoreapp.services;
 
 
+import com.bridgelabz.bookstoreapp.dto.BookDTO;
 import com.bridgelabz.bookstoreapp.dto.LoginDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.dto.UserDTO;
@@ -18,5 +19,5 @@ public interface IUserInterface {
 
     void deleteUserData(int userId);
 
-    BookData addBookInCart(BookData bookData);
+    BookData addBookInCart(BookDTO bookDTO);
 }

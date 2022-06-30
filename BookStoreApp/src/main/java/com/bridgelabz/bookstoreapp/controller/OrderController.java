@@ -36,7 +36,7 @@ public class OrderController {
                 "Dear " + orderData.getUserData().getFirstName()
                         + ", Your order has placed for Book : "
                         + orderData.getBookData().getBookName());
-        return  new ResponseEntity<ResponseDTO> (responseDTO, HttpStatus.OK);
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
 }
