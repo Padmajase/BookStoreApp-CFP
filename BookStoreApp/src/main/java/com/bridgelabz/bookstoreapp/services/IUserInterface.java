@@ -19,5 +19,4 @@ public interface IUserInterface {
 
     void deleteUserData(int userId);
 
-    BookData addBookInCart(BookDTO bookDTO);
 }

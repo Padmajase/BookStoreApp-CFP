@@ -3,7 +3,6 @@ package com.bridgelabz.bookstoreapp.controller;
 import com.bridgelabz.bookstoreapp.dto.OrderDTO;
 import com.bridgelabz.bookstoreapp.dto.ResponseDTO;
 import com.bridgelabz.bookstoreapp.email.EmailService;
-import com.bridgelabz.bookstoreapp.email.IEmailService;
 import com.bridgelabz.bookstoreapp.model.OrderData;
 import com.bridgelabz.bookstoreapp.services.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +10,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*************** placing order here ***************/
 @RestController
 @RequestMapping("/order")
 public class OrderController {
 
+    /*************** injecting order interface object here ***************/
     @Autowired
     IOrderService orderService;
 
+    /*************** injecting Email Interface Object ***************/
     @Autowired
     EmailService emailService;
 
-    @RequestMapping(value={"", "/", "get"})
-    public String getBooksAvailable(){
-        return "Get Call for Order Controller Succesfull";
-    }
-
+    /*************** placing order for book ***************/
     @PostMapping("/placeorder")
     public ResponseEntity<ResponseDTO> placeOrder(@RequestHeader(name = "token") String token,
                                                   @RequestBody OrderDTO orderDTO,

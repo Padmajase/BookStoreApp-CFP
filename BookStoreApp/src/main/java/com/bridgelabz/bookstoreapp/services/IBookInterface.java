@@ -13,5 +13,6 @@ public interface IBookInterface {
 
     void deleteBookData(int bookId);
 
-//    void updateBookById(int bookId,BookDTO bookDTO);
+    BookData updateBookById(int bookId, BookDTO bookDTO);
+
 }

@@ -30,17 +30,19 @@ public class BookService implements IBookInterface{
         bookRepository.deleteById(bookId);
     }
 
-//    @Override
-//    public void updateBookById(int bookId, BookDTO bookDTO) {
-//        List<BookData> bookDataList = this.getBookList();
-//        for (BookData bookData : bookDataList) {
-//            if(bookData.getBookId() == bookId) {
-//                bookData.setBookName(bookDTO.bookName);
-//                bookData.set(employeePayrollDTO.salary);
-//                employeePayrollRepository.save(empData);
-//                return empData;
-//            }
-//        }
-//        return null;
-//    }
+    @Override
+    public BookData updateBookById(int bookId, BookDTO bookDTO) {
+        List<BookData> bookDataList = this.getBookList();
+        for (BookData bookData : bookDataList) {
+            if(bookData.getBookId() == bookId) {
+                bookData.setBookName(bookDTO.bookName);
+                bookData.setBookAuthor(bookDTO.bookAuthor);
+                bookData.setBookPrice(bookDTO.bookPrice);
+
+                bookRepository.save(bookData);
+                return bookData;
+            }
+        }
+        return null;
+    }
 }

@@ -10,14 +10,10 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-//    public EmailService(JavaMailSender javaMailSender) {
-//        this.javaMailSender = javaMailSender;
-//    }
-
     public void sendEmail(String toEmail,
                           String subject,
                           String body) {
-//        java mail can use the simpleMailMessage to send the message
+    /*************** java mail can use the simpleMailMessage to send the message ***************/
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom("padmajapawar7@gmail.com");
         simpleMailMessage.setTo(toEmail);

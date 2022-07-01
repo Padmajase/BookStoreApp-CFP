@@ -19,17 +19,19 @@ import java.util.Optional;
 @Service
 public class UserService implements IUserInterface{
 
-//    public List<UserData> userList = new ArrayList<>();
+    /*************** injecting User repository object here ***************/
     @Autowired
     private UserRepository userRepository;
 
+    /*************** injecting Cart repository object here ***************/
     @Autowired
     private CartRepository cartRepository;
 
+    /*************** injecting Token object here ***************/
     @Autowired
     private TokenUtil tokenUtil;
 
-
+    /*************** adding user details to user repository ***************/
     @Override
     public UserData createUserProfile(UserDTO userDTO) {
         UserData userData = new UserData(userRepository.findAll().size() + 1, userDTO);
@@ -37,11 +39,13 @@ public class UserService implements IUserInterface{
         return userData;
     }
 
+    /*************** getting user list from user repository ***************/
     @Override
     public List<UserData> getUserList() {
         return userRepository.findAll();
     }
 
+    /*************** validating user by token ***************/
     @Override
     public ResponseDTO loginValidation(LoginDTO loginDTO) {
         String token;
@@ -59,16 +63,9 @@ public class UserService implements IUserInterface{
         }
     }
 
-
+    /*************** deleting user from user repository ***************/
+    @Override
     public void deleteUserData(int userId) {
         userRepository.deleteById(userId);
     }
-
-    @Override
-    public BookData addBookInCart(BookDTO bookDTO) {
-        BookData bookData = new BookData(cartRepository.findAll().size() + 1, bookDTO);
-        cartRepository.save(bookData);
-        return bookData;
-    }
-
 }

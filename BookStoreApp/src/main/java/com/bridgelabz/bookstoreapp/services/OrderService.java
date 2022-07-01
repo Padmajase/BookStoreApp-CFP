@@ -18,14 +18,19 @@ import java.util.Optional;
 @Service
 public class OrderService implements IOrderService {
 
+    /*************** injecting TokenUtil Object ***************/
     @Autowired
     private TokenUtil tokenUtil;
 
+    /*************** injecting User Repository Object ***************/
     @Autowired
     private UserRepository userRepository;
+
+    /*************** injecting Book Repository Object ***************/
     @Autowired
     private BookRepository bookRepository;
 
+    /*************** injecting Order Repository Object ***************/
     @Autowired
     private OrderRepository orderRepository;
 
